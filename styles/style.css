@@ -16,8 +16,9 @@
   font-family: var(--font), sans-serif;
   font-variation-settings: "wght" var(--text-weight);
   background-image: var(--bg-page);
-  background-size: 100% 960px;
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .header {
@@ -30,21 +31,20 @@
 }
 
 .header__title {
-  margin: 0 0 20px;
-  font-family: var(--font-accent), monospace;
+  font-family: var(--font-accent), fantasy;
   font-size: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
 }
 
 .header__subtitle {
-  font-family: var(--font-accent), monospace;
+  font-family: var(--font-accent), fantasy;
   font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
   text-transform: uppercase;
+  margin-top: 20px;
 }
 
 .container {
   width: var(--width);
   margin: 0 auto;
-  background-color: var(--bg-color);
 }
 
 .card {
@@ -63,14 +63,15 @@
 
 .card__image {
   position: relative;
-  overflow: hidden;
   border-top: 2px solid var(--color-border);
   border-bottom: 2px solid var(--color-border);
+  overflow: hidden;
+  height: 696px;
 }
 
 .card__image img {
   width: 100%;
-  height: 696px;
+  height: 100%;
   display: block;
   object-fit: cover;
   object-position: center right;
@@ -102,7 +103,7 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--font-accent), monospace;
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   color: var(--color-text);
   opacity: 0.5;
@@ -162,8 +163,8 @@
 }
 
 .like-icon {
-  width: 100%;
-  height: 100%;
+  width: 37px;
+  height: 34px;
 }
 
 .button {
@@ -203,7 +204,7 @@
 }
 
 .button__text {
-  font-family: var(--font-accent), monospace;
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   font-variation-settings: "wght" var(--text-button-weight);
   color: var(--color-text);
@@ -224,8 +225,11 @@
   fill: #fff;
   mix-blend-mode: difference;
   flex-shrink: 0;
-  width: 21px;
+}
+
+.save__button .save__icon {
   height: 21px;
+  width: 21px;
 }
 
 .save__button {
@@ -242,6 +246,11 @@
   max-width: 353px;
 }
 
+.dialog .save__icon {
+  width: 39px;
+  height: 39px;
+}
+
 .dialog[open] {
   display: grid;
   gap: 30px;
@@ -256,7 +265,7 @@
 }
 
 .dialog__text {
-  font-family: var(--font-accent), monospace;
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   font-variation-settings: "wght" 400;
   text-transform: uppercase;
@@ -336,14 +345,20 @@
 .like-icon.is-liked .sparks {
   opacity: 1;
   animation: sparks 0.3s ease-in 0.3s 1 forwards;
+  transform-origin: center;
 }
 
 @media (width <= 375px) {
   .header {
     padding-block: 122px;
   }
-  .card__image img {
+  .card__content {
+    padding: 25px;
+  }
+  .card__image {
     height: 371px;
+  }
+  .card__image img {
     display: block;
     object-fit: cover;
     object-position: center right;
@@ -352,6 +367,11 @@
     height: 84px;
     flex-direction: column;
     gap: 8px;
+    margin-top: 5px;
+  }
+  .save__button .save__icon {
+    height: 28px;
+    width: 28px;
   }
   .dialog {
     max-width: 341px;
